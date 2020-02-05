@@ -1,0 +1,15 @@
+<p>cars works!</p>
+
+<div class="box">
+  <div>
+    <h4>Samochody</h4>
+    <ul>
+      <li *ngFor="let item of marks"><a [innerText]="item.name" [routerLink]="'marks/' + item.name + '/' + item.id"></a></li>
+    </ul>
+  </div>
+  
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

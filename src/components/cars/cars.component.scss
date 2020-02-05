@@ -1,0 +1,12 @@
+.box {
+  display: flex;
+  align-items: center;
+  > div {
+    &:first-child {
+      width: 20%;
+    }
+    // &:not(:first-child) {
+    //   width: 80%;
+    // }
+  }
+}

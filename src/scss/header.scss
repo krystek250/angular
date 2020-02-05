@@ -1,0 +1,18 @@
+#menu {
+  max-height: 70px;
+  background-color: lightblue;
+  padding: 20px 0;
+  ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    li {
+      margin: 0 5px;
+    }
+    a {
+      padding: 10px;
+    }
+  }
+}
