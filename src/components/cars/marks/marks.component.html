@@ -1,3 +1,29 @@
-<div>
-  <h4>This marks works! {{carId}}</h4>
+<div id="markContainer">
+  <h1>Marka samochodu {{carId}}</h1>
+  <ul class="markList">
+    <li *ngFor="let item of objectMark.models">
+      <div class="boxShadow">
+        <div class="carPhoto">
+          <img [src]="item.img" [alt]="item.name" />
+        </div>
+        <div class="info">
+          <h2 [innerText]="'Model: ' + item.name"></h2>
+          <div [innerText]="'Kolor: ' + item.color"></div>
+          <div [innerText]="'Moc: ' + item.hp"></div>
+        </div>
+      </div>
+    </li>
+    <li *ngFor="let item of objectMark.models">
+      <div class="boxShadow">
+        <div class="carPhoto">
+          <img [src]="item.img" [alt]="item.name" />
+        </div>
+        <div class="info">
+          <h2 [innerText]="'Model: ' + item.name"></h2>
+          <div [innerText]="'Kolor: ' + item.color"></div>
+          <div [innerText]="'Moc: ' + item.hp"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>

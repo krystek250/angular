@@ -2,9 +2,9 @@
 
 <div class="box">
   <div>
-    <h4>Samochody</h4>
+    <h4>Marki Samochodów</h4>
     <ul>
-      <li *ngFor="let item of marks"><a [innerText]="item.name" [routerLink]="'marks/' + item.name + '/' + item.id"></a></li>
+      <li *ngFor="let item of marks"><a [innerText]="item.name" [routerLink]="'marks/' + item.name" (click)="emitCarsService(item.name)"></a></li>
     </ul>
   </div>
   

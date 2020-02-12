@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarsService } from '../providers/cars.service';
 
 @Component({
   selector: 'app-marks',
@@ -8,59 +9,48 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MarksComponent implements OnInit {
 
-  public marks = [
-    {
-      id: 1,
-      name: 'Volgswagen',
-      cars: [
-        {
-          name: 'Golf',
-          color: 'Czerwony',
-          hp: '130KM',
-        },
-        {
-          name: 'Bora',
-          color: 'Niebieski',
-          hp: '115KM',
-        },
-        {
-          name: 'Passat',
-          color: 'Czarny',
-          hp: '90KM',
-        },
-      ]
-    },
-    {
-      id: 2,
-      name: 'Audi',
-      cars: [
-        {
-          name: 'A3',
-          color: 'Czerwony',
-          hp: '130KM',
-        },
-        {
-          name: 'A4',
-          color: 'Niebieski',
-          hp: '115KM',
-        },
-        {
-          name: 'A6',
-          color: 'Czarny',
-          hp: '90KM',
-        },
-      ]
-    }
-  ]
-
+  public marks = [];
   public carId: any;
+  public objectMark: any;
 
-  constructor(private route: ActivatedRoute) {
-    this.carId = this.route.snapshot.paramMap.get('id');
-    // console.log(this.carId, ' carId');
+  constructor(
+    private carsService: CarsService,
+    private route: ActivatedRoute) {
+
+      this.marks = this.carsService.marks;
+
+    this.carsService.carsNameEmitter.subscribe((data) => { // subscribe odbiera/przyjmuje dane, a emitter wysyła dane/informacje
+      this.carId = data; // tablica marek
+      // console.log(this.marks, ' marka');
+      this.objectMark = this.carsFilter(data); // object przefiltrowanej tablicy
+      console.log(this.objectMark, ' cały object marki');
+    });
   }
 
   ngOnInit() {
+    let testfunc = '';
+
+    testfunc = this.testString('Krystian');
+
+    console.log(testfunc);
+
+    this.testVoid();
+  }
+
+  public testVoid(): void {
+    console.log('testVoid');
+  }
+
+  public testString(name: string): string {
+    return 'nazywam się: ' + name;
+  }
+
+  public carsFilter(carName: string): any { // filtrowanie tablicy z markami samochodów
+    let searchMark: any;
+    searchMark = this.marks.find((mark) => {
+      return mark.name === carName;
+    })
+    return searchMark;
   }
 
 }

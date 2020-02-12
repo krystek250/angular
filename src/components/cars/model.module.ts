@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModelsComponent } from './marks/models/models.component';
 import { MarksComponent } from './marks/marks.component';
 import { RouterModule } from '@angular/router';
+import { CarsService } from './providers/cars.service';
 
 
 
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     MarksComponent,
     ModelsComponent
-  ]
+  ],
+  providers: [CarsService]
 })
 export class ModelModule { }

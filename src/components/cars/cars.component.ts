@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { CarsService } from './providers/cars.service';
 
 @Component({
   selector: 'app-cars',
@@ -20,12 +21,18 @@ export class CarsComponent implements OnInit {
     }
   ]
 
-  constructor() {
+  constructor(
+    private carsService: CarsService // w ten sposób odnosimy się do naszego (injection) carsService;
+  ) {
     // this.testlog('constructor');
    }
 
   ngOnInit() {
     // this.testlog('init');
+  }
+
+  public emitCarsService(mark: any): void {
+    this.carsService.carsNameEmitter.next(mark); // funkcja next aktywuje emitter np: weź emituj ten obiekt, zmienna, daną, itd..;
   }
 
   // private testlog(name: string) {

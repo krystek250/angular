@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'cars', component: CarsComponent,
     children: [
-      { path: 'marks/:name/:id', component: MarksComponent},
+      { path: 'marks/:name', component: MarksComponent},
     ]
   }
 ]

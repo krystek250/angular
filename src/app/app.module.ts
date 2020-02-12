@@ -16,7 +16,7 @@ import { PagesModule } from 'src/components/pages.module';
     GlobalModule,
     PagesModule,
   ],
-  providers: [],
+  providers: [], // tu sie wpisuje moje serwisy;
   bootstrap: [AppComponent]
 })
 export class AppModule { }
